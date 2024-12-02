@@ -1,29 +1,66 @@
 # ScientificPaper-IR
-PDF Scientific paper intellectual reader
 
-**description**
+## 📖 Описание
 
-# Tools
-* ts + tauri
-* python/go/rust
+**ScientificPaper-IR** — это система для извлечения ключевой информации из pdf-документов научного содержания. Кроме стандартного извлечения таблиц, система также будет поддерживать извлечение информации из графиков и схем, а также связанных ресурсов.
+Система будет работать без внешних серверов, что обеспечит её конфиденциальность.
 
-# Extras
+## ⭐️ Цели проекта
 
-## Text embeddings
-* https://qdrant.github.io/fastembed/
-* https://github.com/qdrant/qdrant
+Целью проекта является создание системы, которая:
 
-## Similar projects
-* https://github.com/Filimoa/open-parse/tree/main
-* https://github.com/jsvine/pdfplumber
-* https://github.com/topics/pdf-parser
-* https://github.com/py-pdf/pypdf
-* https://github.com/smalot/pdfparser
-* https://github.com/jstockwin/py-pdf-parser
-* https://github.com/RDFLib/rdflib
-* https://pypi.org/project/camelot-py/
-* https://pypi.org/project/tabula-py/
-* apach-tika
+- Помогает в извлечении основной информации из статей.
+- Повышает эффективность анализа статей.
+- Эффективно работает на локальных мощностях.
 
-## AI based solutions
-* https://github.com/getomni-ai/zerox?tab=readme-ov-file (zero-shot pdf extraction based on gpt-mini)
+## ⚙️ Функциональные возможности
+
+- Извлечении таблиц с помощью методов машинного зрения.
+- Извлечение основной информации из статьи (генерация `abstract`, поиск ключевых данных, поиск связанных данных).
+- Извлечение дат, названий и прочей информации из графиков и рисунков.
+
+## 🖥️ Стек технологий
+
+### Backend
+- **Python** для разработки основного функционала.
+- **PyTorch** для создания и обучения моделей машинного обучения.
+- **LLaMA v3.2** для извлечения основной информации из текста.
+- **gpt-4o-mini** для анализа изображений и извлечение данных из них.
+
+### Frontend
+- **Angular** в качестве основы **Tauri**.
+- **Tauri** для создания кросс платформенного интерфейса.
+
+## 🔧 Структура проекта
+
+### Backend
+- **`backend/extract_pdf_info.py`** — скрипт для извлечения информации из pdf.
+- **`backend/run_server.py`** — скрипт для запуска сервера, для работы с `extract_pdf_info.py`.
+- **`requirements.txt`** — список зависимостей бэкенд части проекта.
+- **`models/`** — папка моделями.
+
+### Frontend
+- **`package.json`** и **`package-lock.json`** — список зависимостей фронтенд части проекта.
+
+### Общее
+- **`README.md`** — файл с информацией о проекте.
+- **`CONTRIBUTING.md`** — файл с информацией о внесении внешних изменений в проект.
+- **`LICENSE`** — файл с информацией о распространении проекта.
+
+## ⬇️ Установка
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/setday/ScientificPaper-IR.git
+2. Перейдите в каталог проекта:
+    ```bash
+    cd ScientificPaper-IR
+3. Установите зависимости:
+    ```bash
+    pip install -r requirements.txt
+
+## Дополнительная информация
+
+- Данный репозиторий не является основным для разработки. Здесь находятся лишь release-версии проекта. 
+
+- На данный момент frontend часть не является основополагающей и заморожена до окончания разработки backend части.
